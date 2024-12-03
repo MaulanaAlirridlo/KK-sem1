@@ -8,7 +8,7 @@ samples_per_class = 400;
 X_balanced = [];
 y_balanced = [];
 
-for class = 1:num_classes
+for class = 0:num_classes-1
     idx = find(y == class);
     disp(class)
     sampled_idx = idx(randperm(length(idx), samples_per_class));
