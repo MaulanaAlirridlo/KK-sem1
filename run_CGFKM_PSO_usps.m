@@ -96,7 +96,7 @@ LB = zeros(1, nCluster);
 UB = ones(1, nCluster);
 dim = nCluster;
 
-options = optimoptions('particleswarm', 'SwarmSize', 20, 'MaxIterations', 50);
+options = optimoptions('particleswarm', 'SwarmSize', 20, 'MaxIterations', 100);
 
 [Best_centroid, Best_score1] = particleswarm(...
     @(params) pso_fitness(params, X, Y, nCluster, knn_size, nOrder, TXs, A1), ...
