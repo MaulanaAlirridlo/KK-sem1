@@ -58,7 +58,7 @@ end
 
 function fitness = fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Best_centroid)
     nOrder = round(params(1));
-    disp(nOrder)
+    disp(["nOrder" nOrder])
     totalSamples = size(X, 1);
     initCentroids = max(1, min(totalSamples, round(Best_centroid * totalSamples)));
 
@@ -89,7 +89,7 @@ function fitness = fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Be
 
     res = my_eval_y(label, Y);
     fitness = res(1);
-    disp(fitness)
+    disp(["acc" fitness])
 end
 
 LB = zeros(1, nCluster);
