@@ -56,7 +56,7 @@ function fitness = pso_fitness(params, X, Y, nCluster, knn_size, nOrder, TXs, A1
     fitness = -res(1);
 end
 
-function fitness = pso_fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Best_centroid)
+function fitness = fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Best_centroid)
     nOrder = round(params(1));
     totalSamples = size(X, 1);
     initCentroids = max(1, min(totalSamples, round(Best_centroid * totalSamples)));
@@ -94,7 +94,7 @@ LB = zeros(1, nCluster);
 UB = ones(1, nCluster);
 dim = nCluster;
 
-options = optimoptions('particleswarm', 'SwarmSize', 20, 'MaxIterations', 50);
+options = optimoptions('particleswarm', 'SwarmSize', 20, 'MaxIterations', 100);
 
 [Best_centroid, Best_score1] = particleswarm(...
     @(params) pso_fitness(params, X, Y, nCluster, knn_size, nOrder, TXs, A1), ...

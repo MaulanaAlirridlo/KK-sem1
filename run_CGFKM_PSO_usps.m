@@ -58,6 +58,7 @@ end
 
 function fitness = fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Best_centroid)
     nOrder = round(params(1));
+    disp(nOrder)
     totalSamples = size(X, 1);
     initCentroids = max(1, min(totalSamples, round(Best_centroid * totalSamples)));
 
@@ -87,7 +88,8 @@ function fitness = fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Be
     [label, ~, ~] = CGFKM_fast(X, nCluster, nOrder, knn_size, TXs, A1, 'initCentroid', initCentroids);
 
     res = my_eval_y(label, Y);
-    fitness = -res(1);
+    fitness = res(1);
+    disp(fitness)
 end
 
 LB = zeros(1, nCluster);

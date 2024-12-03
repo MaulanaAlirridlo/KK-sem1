@@ -114,7 +114,7 @@ function fitness = fitnessOrder(params, X, Y, nCluster, batch_size, knn_size, Be
 end
 
 SearchAgents_no = 20;
-Max_iter = 50;
+Max_iter = 100;
 LB = zeros(1, nCluster);
 UB = ones(1, nCluster);
 dim = nCluster;

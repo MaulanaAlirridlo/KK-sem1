@@ -1,6 +1,6 @@
 clear;clc;
 
-load jaffe_213n_676d_10c_uni.mat;
+load ba.mat;
 disp('loading');
 % Load dataset Isolet
 %data = load('isolet.mat');
@@ -51,7 +51,6 @@ nSmp = length(Y);
 
 batch_size = 1000;
 knn_size = 9;
-initCentroid = [1 2 3 4 5 6 7 8 9 10];
 disp('construct w');
 Si = ConstructWHuge(X, 5, batch_size);
 nOrder = 5;
@@ -84,5 +83,5 @@ end
 [~, o_2] = eig(A1);
 disp(['min eigval is ', num2str(min(diag(o_2)))]);
 disp('cgfkm');
-[label, objHistory, beta] = CGFKM_fast(X, nCluster, nOrder, knn_size, TXs, A1, 'initCentroid', initCentroid);
+[label, objHistory, beta] = CGFKM_fast(X, nCluster, nOrder, knn_size, TXs, A1);
 result_10 = my_eval_y(label, Y);
