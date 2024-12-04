@@ -198,7 +198,7 @@ bCon = false;
 for t=1:reps
     switch start
         case 'sample'
-            if ~isempty(initCentroid)
+            if ~isempty(initCentroid) & initCentroid ~= 0
                 disp(initCentroid)
                 center = X(initCentroid,:);
             else
