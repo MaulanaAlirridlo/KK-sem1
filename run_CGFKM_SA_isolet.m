@@ -1,5 +1,6 @@
 clear; clc;
 
+
 load('isolet.mat')
 
 num_classes = 26;
@@ -8,18 +9,16 @@ samples_per_class = 60;
 X_balanced = [];
 y_balanced = [];
 
-for class = 1:num_classes
+for class = 0:num_classes-1
     idx = find(y == class);
-    disp(class)
-    sampled_idx = idx(randperm(length(idx), samples_per_class));
+    sampled_idx = idx(1:samples_per_class);
 
     X_balanced = [X_balanced; X(sampled_idx, :)];
     y_balanced = [y_balanced; y(sampled_idx)];
 end
 
-shuffle_idx = randperm(size(X_balanced, 1));
-X = X_balanced(shuffle_idx, :);
-y = y_balanced(shuffle_idx);
+X = X_balanced;
+y = y_balanced;
 
 if exist('y', 'var')
     Y = y;
