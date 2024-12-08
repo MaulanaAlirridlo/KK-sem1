@@ -8,7 +8,7 @@ samples_per_class = 60;
 X_balanced = [];
 y_balanced = [];
 
-for class = 0:num_classes-1
+for class = 1:num_classes
     idx = find(y == class);
     sampled_idx = idx(1:samples_per_class);
 
